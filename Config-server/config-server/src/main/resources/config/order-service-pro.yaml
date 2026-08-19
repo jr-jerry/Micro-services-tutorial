@@ -1,0 +1,5 @@
+server:
+  port: 8083
+
+application:
+  message: application is running on production configuration

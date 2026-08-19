@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: kafka-integration
+    kafka:
+      bootstrap-servers: localhost:9092
+      consumer:
+        group-id: my-group
+        auto-offset-reset: earliest
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        key-serialize: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer

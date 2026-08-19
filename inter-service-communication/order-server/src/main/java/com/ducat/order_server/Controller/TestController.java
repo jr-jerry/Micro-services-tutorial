@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import com.ducat.order_server.Config.FeignClientInterface;
 
@@ -14,21 +13,25 @@ import com.ducat.order_server.Config.FeignClientInterface;
 @RequestMapping("/order-service")
 public class TestController {
     // private RestTemplate restTemplate;
-    // private FeignClientInterface feignClientInterface;
-    private WebClient webClient;
+    private FeignClientInterface feignClientInterface;
+    // private WebClient webClient;
      
    
-    public TestController(RestTemplate restTemplate, FeignClientInterface feignClientInterface, WebClient webClient) {
+    public TestController(RestTemplate restTemplate, FeignClientInterface feignClientInterface) {
         // this.restTemplate = restTemplate;
-        // this.feignClientInterface = feignClientInterface;
-        this.webClient = webClient;
+        this.feignClientInterface = feignClientInterface;
+        // this.webClient = webClient;
     }
 
 
     @GetMapping
     public Map<String,Object> getEndpoint(){
-        String message=webClient.get().uri("/inventory/").retrieve().bodyToMono(String.class).block();
+
+        //Using FeignClient 
+        String message=feignClientInterface.getRequest();
         return Map.of("data",message);
+        // String message=webClient.get().uri("/inventory").retrieve().bodyToMono(String.class).block();//http://localhost:8081/inventory
+        // return Map.of("data",message);
     }   
 }
 

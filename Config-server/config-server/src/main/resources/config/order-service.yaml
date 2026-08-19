@@ -1,0 +1,5 @@
+server:
+  port: 8081
+
+application:
+  message: order-service-application-using-first-configuration-file
