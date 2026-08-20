@@ -1,0 +1,5 @@
+server:
+  port: 8084
+
+application:
+  message: booking service running via default configuration

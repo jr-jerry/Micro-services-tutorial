@@ -1,0 +1,5 @@
+server:
+  port: 8086
+
+application:
+  message: application is running vai production configuration
