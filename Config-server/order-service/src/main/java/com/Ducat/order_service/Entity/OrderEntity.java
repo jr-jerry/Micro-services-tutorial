@@ -1,6 +1,5 @@
-package com.Ducat.book_service.Entity;
+package com.Ducat.order_service.Entity;
 
- 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,13 +14,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookEntity {
+public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bookId;
+    private Long id;
     private String bookName;
     private String bookAuthor;
     private int bookQuantity;
-    private float bookPrice;
-    private boolean isDeleted;
 }

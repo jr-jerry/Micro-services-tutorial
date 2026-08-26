@@ -1,13 +1,15 @@
 package com.Ducat.book_service.DTO;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
-@Setter
-public class BookDTO {
+@Setter@AllArgsConstructor
+@NoArgsConstructor
+public class QuantityResponseDTO {
     private String bookName;
     private String bookAuthor;
     private int bookQuantity;
-    private float bookPrice;
 }
