@@ -11,6 +11,7 @@ import com.Ducat.order_service.DTO.OrderRequestDTO;
 import com.Ducat.order_service.DTO.OrderResponseDTO;
 import com.Ducat.order_service.DTO.QuantityResponseDTO;
 import com.Ducat.order_service.Entity.OrderEntity;
+import com.Ducat.order_service.Exceptions.OutOfStockException;
 import com.Ducat.order_service.Repository.OrderRepo;
 
 import lombok.AllArgsConstructor;
@@ -38,7 +39,7 @@ public class OrderService {
        int requiredQuantity=orderRequestDTO.getBookQuantity();
 
        if(avaliableQuantity<requiredQuantity){
-            throw new OutofStockException("Book km avaliable hai ");
+            throw new OutOfStockException("Book km avaliable hai ");
        }
 
         OrderEntity orderEntity=this.modelMapper.map(orderRequestDTO,OrderEntity.class);
